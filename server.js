@@ -32,12 +32,23 @@ server.get('/videosGet', () => {
     // return 'base teste niick'
 })
 
-server.put('/videoPut/:id', () => {
+//PUT
+server.put('/videoPut/:id', (request, reply) => {
     
-    return 'teste teste'
+    const videoID = request.params.id 
+    //Request body 
+    const {Title, Description, Duration} = request.body
+
+    database.update(videoID, {
+        Title,
+        Description,
+        Duration
+    })
+
+    return reply.status(204).send()
 })
 
-
+//DELETE
 server.delete('/videoDelete/:id', () => {
     
     return 'teste teste'
@@ -68,11 +79,3 @@ server.listen({
         
 //         return response.end()
 //     })
-
-
-// server.listen(5000)
-
-
-
-
-//42:59
