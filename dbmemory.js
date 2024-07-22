@@ -5,7 +5,7 @@ export class dbMemory{
     #videos = new Map()
 
     list(){
-        return  Array.from(this.#videos.values())
+        return  Array.from(this.#videos.entries())
     }
 
     create(video){ 
